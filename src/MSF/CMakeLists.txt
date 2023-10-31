@@ -1,5 +1,9 @@
 # Create the MSF library
 add_library(MSF sensor.cpp)
 
-# If you need to link MSF with any external libraries, use target_link_libraries here.
-# Example: target_link_libraries(MSF SomeExternalLibrary)
+# Add subdirectories for the additional MSF libraries
+add_subdirectory(MSF_core)
+add_subdirectory(MSF_update)
+
+# Link the MSF library with its internal libraries
+target_link_libraries(MSF MSFCore MSFUpdate)
